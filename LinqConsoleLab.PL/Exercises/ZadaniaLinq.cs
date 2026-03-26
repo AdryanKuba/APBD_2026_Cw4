@@ -145,6 +145,8 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie08_UnikalneMiastaStudentow()
     {
+        var method = DaneUczelni.Studenci.Select(s => s.Miasto).OrderBy(m => m).Distinct();
+        return method;
         throw Niezaimplementowano(nameof(Zadanie08_UnikalneMiastaStudentow));
     }
 
@@ -160,6 +162,8 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie09_TrzyNajnowszeZapisy()
     {
+        var method = DaneUczelni.Zapisy.OrderByDescending(z => z.DataZapisu).Select(z => $"{z.DataZapisu}, {z.StudentId}, {z.PrzedmiotId}").Take(3);
+        return method;
         throw Niezaimplementowano(nameof(Zadanie09_TrzyNajnowszeZapisy));
     }
 
@@ -176,6 +180,8 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie10_DrugaStronaPrzedmiotow()
     {
+        var method = DaneUczelni.Przedmioty.OrderBy(p => p.Nazwa).Select(p => $"{p.Nazwa}, {p.Kategoria}").Skip(2).Take(2);
+        return method;
         throw Niezaimplementowano(nameof(Zadanie10_DrugaStronaPrzedmiotow));
     }
 
